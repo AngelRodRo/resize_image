@@ -1,33 +1,16 @@
 <html>
   <head>
-  <title>Get Image Data URL using JavaScript</title>
-  <script type="text/javascript" src="js/jquery-2.1.4.min.js">
-  </script>
+     <title>Get Image Data URL using JavaScript</title>
+     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+     <script type="text/javascript" src="js/v1.js"></script>
   </head>
   <body>
-     <img id="image" src="" alt="" />
-    <input type="file" id="file" name="name" value="">
-    <input type="button" id="button" name="name" value="">
-
-    <script>
-
- 
-      $("#button").click(function(){
-         var input = $("#file");
-         var fReader = new FileReader();
-         console.log(input);
-
-         fReader.readAsDataURL(input[0].files[0]);
-         fReader.onloadend = function(event){
-            var img = $("#image");
-            alert(input[0].baseURI);
-            img.src = event.target.result;
-         }
-
-      });
-
-
-
-    </script>
+     <form method="post" id="fileinfo" name="fileinfo">
+        <label>Select a file:</label><br>
+        <input type="text" name="name" value="">
+        <input type="hidden" id="filebase64" name="base64" value="">
+        <input id="files" type="file" name="file" required />
+        <input type="button" onClick="getImage()" value="Upload" />
+    </form>
   </body>
 </html>
